@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Music Player</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Background Effects -->
+    <div class="bg-effects">
+        <div class="floating-orb"></div>
+        <div class="floating-orb"></div>
+        <div class="floating-orb"></div>
+        <div class="music-wave"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <h1 class="app-title">
+                <i class="fas fa-music"></i>
+                Modern Music Player
+            </h1>
+            <div class="header-controls">
+                <div class="file-upload">
+                    <input type="file" id="fileInput" class="file-upload-input" accept="audio/*" multiple>
+                    <button class="file-upload-btn" id="addMusicBtn">
+                        <i class="fas fa-plus"></i>
+                        Add Music
+                    </button>
+                </div>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-sun" id="themeIcon"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Player Section -->
+        <section class="player-section">
+            <div class="player-card">
+                <!-- Audio Visualizer -->
+                <div class="audio-visualizer" id="audioVisualizer">
+                    <div class="visualizer-bar"></div>
+                    <div class="visualizer-bar"></div>
+                    <div class="visualizer-bar"></div>
+                    <div class="visualizer-bar"></div>
+                    <div class="visualizer-bar"></div>
+                    <div class="visualizer-bar"></div>
+                    <div class="visualizer-bar"></div>
+                    <div class="visualizer-bar"></div>
+                    <div class="visualizer-bar"></div>
+                    <div class="visualizer-bar"></div>
+                </div>
+
+                <!-- Album Art -->
+                <div class="album-art-container">
+                    <div class="album-art-wrapper">
+                        <img id="albumArt" class="album-art" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300' viewBox='0 0 300 300'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%236366f1'/%3E%3Cstop offset='100%25' stop-color='%23ec4899'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23grad)'/%3E%3Ccircle cx='150' cy='150' r='20' fill='%23ffffff' opacity='0.3'/%3E%3Ctext x='150' y='160' text-anchor='middle' fill='%23ffffff' font-family='Arial' font-size='20' font-weight='bold'%3E♪%3C/text%3E%3C/svg%3E" alt="Album Art">
+                        <div class="vinyl-overlay">
+                            <div class="vinyl-center"></div>
+                        </div>
+                        <div class="album-reflection"></div>
+                    </div>
+                </div>
+
+                <!-- Song Information -->
+                <div class="song-info">
+                    <h2 id="songTitle" class="song-title">Choose a song</h2>
+                    <p id="songArtist" class="song-artist">Unknown Artist</p>
+                    <p id="songAlbum" class="song-album">Unknown Album</p>
+                </div>
+
+                <!-- Progress Bar -->
+                <div class="progress-section">
+                    <div class="progress-container">
+                        <div class="progress-bar" id="progressBar">
+                            <div class="progress-fill" id="progressFill"></div>
+                            <div class="progress-handle" id="progressHandle"></div>
+                        </div>
+                    </div>
+                    <div class="time-info">
+                        <span id="currentTime" class="time">0:00</span>
+                        <span id="totalTime" class="time">0:00</span>
+                    </div>
+                </div>
+
+                <!-- Control Buttons -->
+                <div class="controls">
+                    <button class="control-btn" id="shuffleBtn" title="Shuffle">
+                        <i class="fas fa-random"></i>
+                    </button>
+                    <button class="control-btn" id="prevBtn" title="Previous">
+                        <i class="fas fa-step-backward"></i>
+                    </button>
+                    <button class="control-btn play-btn" id="playBtn" title="Play/Pause">
+                        <i class="fas fa-play" id="playIcon"></i>
+                    </button>
+                    <button class="control-btn" id="nextBtn" title="Next">
+                        <i class="fas fa-step-forward"></i>
+                    </button>
+                    <button class="control-btn" id="repeatBtn" title="Repeat">
+                        <i class="fas fa-redo"></i>
+                    </button>
+                </div>
+
+                <!-- Volume Control -->
+                <div class="volume-section">
+                    <button class="volume-btn" id="volumeBtn">
+                        <i class="fas fa-volume-up" id="volumeIcon"></i>
+                    </button>
+                    <div class="volume-slider-container">
+                        <input type="range" class="volume-slider" id="volumeSlider" min="0" max="100" value="70">
+                        <div class="volume-fill" id="volumeFill"></div>
+                    </div>
+                    <span class="volume-percentage" id="volumePercentage">70%</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Playlist Section -->
+        <section class="playlist-section">
+            <div class="playlist-container">
+                <div class="playlist-header">
+                    <h2 class="playlist-title">
+                        <i class="fas fa-list-ul"></i>
+                        Playlist
+                    </h2>
+                    <div class="playlist-controls">
+                        <input type="text" class="search-input" id="searchInput" placeholder="Search songs...">
+                        <button class="clear-playlist-btn" id="clearPlaylistBtn" title="Clear Playlist">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="playlist-content">
+                    <ul class="playlist" id="playlist">
+                        <!-- Playlist items will be added dynamically -->
+                    </ul>
+                    <div class="empty-playlist" id="emptyPlaylist">
+                        <i class="fas fa-music"></i>
+                        <p>No songs in playlist</p>
+                        <p class="empty-subtitle">Add some music to get started</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Audio Element -->
+    <audio id="audioPlayer" preload="metadata"></audio>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner">
+            <div class="spinner"></div>
+            <p>Loading music...</p>
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-content">
+        <p>&copy; 2025 Dev by Ruvinda Manoshitha</p>
+        <div class="social-links">
+            <a href="https://linkedin.com/in/ruvindamanoshitha" target="_blank" aria-label="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/Ruvi7599" target="_blank" aria-label="GitHub">
+                <i class="fab fa-github"></i>
+            </a>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
