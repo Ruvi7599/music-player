@@ -25,6 +25,25 @@ Designed to be lightweight, elegant, and easy to use across devices.
 
 ---
 
+## 🖼️ UI Previews
+
+### 🌐 Web View
+![UI Web](./ui/UI_WEB.png)
+
+### 🌗 Light & Dark Modes
+![Light Dark](./ui/LIGHT_DARK.png)
+
+### 📱 Mobile Responsive
+![Responsive Mobile](./ui/RESPONSIVE_MOB.png)
+
+### 📲 Tablet Responsive
+![Responsive Tablet](./ui/RESPONSIVE_TAB.png)
+
+### 🎵 Player Controls
+![Music Play](./ui/MUSIC_PLAY.png)
+
+---
+
 ## ⚙️ Setup & Usage
 
 1. **Clone this repository**  
