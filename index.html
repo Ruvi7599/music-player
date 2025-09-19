@@ -34,6 +34,9 @@
                 <button class="theme-toggle" id="themeToggle">
                     <i class="fas fa-sun" id="themeIcon"></i>
                 </button>
+                <button class="reset-btn" id="resetBtn" title="Reset Player">
+                 <i class="fas fa-undo"></i>
+            </button>
             </div>
         </div>
     </header>
@@ -155,12 +158,17 @@
     <audio id="audioPlayer" preload="metadata"></audio>
 
     <!-- Loading Overlay -->
-    <div class="loading-overlay" id="loadingOverlay">
-        <div class="loading-spinner">
-            <div class="spinner"></div>
-            <p>Loading music...</p>
-        </div>
+    <!-- In the loading overlay section of index.html -->
+<div class="loading-overlay" id="loadingOverlay">
+    <div class="loading-spinner">
+        <div class="spinner"></div>
+        <p>Loading music...</p>
+        <button class="loading-cancel-btn" id="loadingCancelBtn">Cancel</button>
     </div>
+</div>
+
+
+
 
     <footer class="footer">
     <div class="footer-content">

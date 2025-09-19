@@ -1746,3 +1746,40 @@ body {
     color: var(--primary);
     transform: scale(1.2);
 }
+/* Add to styles.css */
+.loading-cancel-btn {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background: rgba(239, 68, 68, 0.2);
+    color: var(--error);
+    border: 1px solid var(--error);
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.loading-cancel-btn:hover {
+    background: rgba(239, 68, 68, 0.3);
+    transform: scale(1.05);
+}
+.reset-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid var(--border);
+    background: var(--bg-card);
+    color: var(--text-primary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    font-size: 1.2rem;
+    backdrop-filter: blur(10px);
+}
+
+.reset-btn:hover {
+    border-color: var(--warning);
+    color: var(--warning);
+    transform: rotate(-180deg);
+}
